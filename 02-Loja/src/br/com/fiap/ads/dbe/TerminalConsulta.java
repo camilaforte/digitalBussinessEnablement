@@ -5,12 +5,17 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.fiap.ads.dbe.bean.ProdutoTO;
 
 public class TerminalConsulta {
 
+	private static final Logger log = LoggerFactory.getLogger(TerminalConsulta.class);
+	
 	public static void main(String[] args) {
-
+		log.info("Inicializando um sistema.");
 		Scanner scn = new Scanner(System.in);
 
 		int opcao;
@@ -38,12 +43,14 @@ public class TerminalConsulta {
 				ProdutoTO prod = bo.consultarProduto(codigo);
 				if (prod == null) {
 					System.out.println("Produto não cadastrado!");
+				log.warn("Produto não encontrado");
 				} else {
 					System.out.println(prod.getNome());
 					System.out.println(prod.getCodigo());
 					System.out.println(df.format(prod.getPreco()));
 				}
 			}
+			log.info("Saindo da aplicação");
 		} while (opcao != 0);
 		scn.close();
 	}
