@@ -2,13 +2,16 @@ package br.com.fiap.dbe.aula06.view;
 
 import java.rmi.RemoteException;
 
+import org.apache.axis2.AxisFault;
+
 import br.com.fiap.dbe.aula06.bo.NotaBOStub;
 import br.com.fiap.dbe.aula06.bo.NotaBOStub.CalcPs;
 import br.com.fiap.dbe.aula06.bo.NotaBOStub.CalcPsResponse;
 
 public class CalcPSView {
 
-	public static void main(String[] args) throws RemoteException {
+	public static void main(String[] args) throws RemoteException, AxisFault {
+		
 		
 		NotaBOStub stub = new NotaBOStub();
 		
