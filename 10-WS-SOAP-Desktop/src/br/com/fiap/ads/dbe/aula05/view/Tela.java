@@ -1,13 +1,17 @@
 package br.com.fiap.ads.dbe.aula05.view;
 
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
+import java.rmi.RemoteException;
+
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+
+import br.com.fiap.ads.dbe.aula05.repository.NotaRepository;
 
 public class Tela {
 
@@ -18,6 +22,7 @@ public class Tela {
 
 	/**
 	 * Launch the application.
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -51,34 +56,45 @@ public class Tela {
 		shlSwtCalcularps = new Shell();
 		shlSwtCalcularps.setSize(410, 190);
 		shlSwtCalcularps.setText("SWT CalcularPS");
-		
+
 		txtAm = new Text(shlSwtCalcularps, SWT.BORDER);
 		txtAm.setBounds(35, 34, 75, 21);
-		
+
 		txtNac = new Text(shlSwtCalcularps, SWT.BORDER);
 		txtNac.setBounds(35, 61, 75, 21);
-		
+
 		Label lblAm = new Label(shlSwtCalcularps, SWT.NONE);
 		lblAm.setBounds(10, 37, 19, 15);
 		lblAm.setText("am");
-		
+
 		Label lblNac = new Label(shlSwtCalcularps, SWT.NONE);
 		lblNac.setBounds(10, 64, 19, 15);
 		lblNac.setText("nac");
-		
+
 		Button btnCalcular = new Button(shlSwtCalcularps, SWT.NONE);
 		btnCalcular.addSelectionListener(new SelectionAdapter() {
-			//clique botao
-			
+			// clique botao
 			public void widgetSelected(SelectionEvent e) {
+
+				float am = Float.parseFloat(txtAm.getText());
+				float nac = Float.parseFloat(txtNac.getText());
+
+				try {
+					NotaRepository rep = new NotaRepository();
+					float ps = rep.calcularPs(am, nac);
+					txtPs.setText(String.valueOf(ps));
+				} catch (RemoteException e1) {
+					txtPs.setText("Erro ao chamar o ws");
+				}
 			}
+
 		});
 		btnCalcular.setBounds(35, 105, 75, 25);
 		btnCalcular.setText("Calcular");
-		
+
 		txtPs = new Text(shlSwtCalcularps, SWT.BORDER);
 		txtPs.setBounds(189, 34, 120, 48);
-		
+
 		Label lblPs = new Label(shlSwtCalcularps, SWT.NONE);
 		lblPs.setBounds(237, 13, 19, 15);
 		lblPs.setText("ps");
