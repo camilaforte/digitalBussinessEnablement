@@ -1,16 +1,35 @@
-package br.com.fiap.ads.dbe.to;
+package br.com.fiap.to;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement					//
+@XmlRootElement
+@Entity
+@Table (name = "T_PRODUTO")
+@SequenceGenerator (name = "produto", sequenceName = "SQ_T_PRODUTO", allocationSize = 1)
 public class ProdutoTO {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto")
 	private int codigo;
+	
+	@Column (name = "nm_produto")
 	private String nome;
+	
+	@Column (name = "ds_produto")
 	private String descricao;
+	
+	@Column (name = "vl_produto")
 	private double preco;
+	
+	@Column (name = "st_produto")
 	private boolean disponivel;
-
 	
 	public ProdutoTO() {
 		super();
@@ -25,7 +44,6 @@ public class ProdutoTO {
 		this.disponivel = disponivel;
 	}
 
-	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -65,5 +83,4 @@ public class ProdutoTO {
 	public void setDisponivel(boolean disponivel) {
 		this.disponivel = disponivel;
 	}
-
 }
