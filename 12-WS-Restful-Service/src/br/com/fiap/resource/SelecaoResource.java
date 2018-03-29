@@ -28,7 +28,7 @@ import br.com.fiap.jpa.singleton.EntityManagerFactorySingleton;
 @Path("/selecao")
 public class SelecaoResource {
 
-	// crio um dao, sem ele webservice não funciona
+	// crio um dao, sem ele webservice nï¿½o funciona
 	private SelecaoDAO dao;
 
 	// inicializo o dao no construtor, com entity
@@ -68,7 +68,6 @@ public class SelecaoResource {
 	
 
 	@POST	//cadastrar
-	@Path("{id}")
 	@Consumes(MediaType.APPLICATION_JSON)	//devolve uma Response
 	public Response cadastrar (Selecao selecao, @Context UriInfo uri) {
 		
@@ -86,9 +85,9 @@ public class SelecaoResource {
 		//construir url de resposta, retoran status 201
 		//recupera URL
 		UriBuilder b = uri.getAbsolutePathBuilder();
-		//adiciona o codigo da seleção na URL
-		b.path(selecao.getCodigo() + "");
-		//Retorna status 201 com a URL para acessar a seleção
+		//adiciona o codigo da seleï¿½ï¿½o na URL
+		b.path(String.valueOf(selecao.getCodigo()));
+		//Retorna status 201 com a URL para acessar a seleï¿½ï¿½o
 		return Response.created(b.build()).build();
 	}
 	
