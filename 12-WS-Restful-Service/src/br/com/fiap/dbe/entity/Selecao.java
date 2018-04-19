@@ -20,7 +20,7 @@ public class Selecao {
 	private int codigo;
 	
 	@Column (name = "nm_selecao", length = 100, nullable = false)
-	private String nome;
+	private String pais;
 	
 	@Column (name = "st_selecao")
 	private boolean classificado;
@@ -32,9 +32,9 @@ public class Selecao {
 		super();
 	}
 
-	public Selecao(String nome, boolean classificado, int numeroMundiais) {
+	public Selecao(String pais, boolean classificado, int numeroMundiais) {
 		super();
-		this.nome = nome;
+		this.pais = pais;
 		this.classificado = classificado;
 		this.numeroMundiais = numeroMundiais;
 	}
@@ -47,12 +47,12 @@ public class Selecao {
 		this.codigo = codigo;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getPais() {
+		return pais;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 
 	public boolean isClassificado() {
