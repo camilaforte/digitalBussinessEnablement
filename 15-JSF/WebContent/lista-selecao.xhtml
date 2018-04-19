@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Lista de Seleções</title>
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<h:outputScript library="js" name="jquery-3.3.1.min.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+</h:head>
+
+<h:body>
+	<div class="container">
+
+
+
+		<h1>Lista de Seleções</h1>
+		
+		<h:messages/>
+
+		<h:dataTable var="selecao" value="#{selecaoBean.selecoes}" styleClass="table">
+
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+			#{selecao.codigo}
+		</h:column>
+
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+			#{selecao.pais}
+		</h:column>
+
+			<h:column>
+				<f:facet name="header">Nº Mundiais</f:facet>
+			#{selecao.numeroMundiais}
+		</h:column>
+
+			<h:column>
+				<f:facet name="header">Classificado</f:facet>
+			#{selecao.classificado?"SIM" : "NÃO"}
+		</h:column>
+
+			<h:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:form>
+					<h:commandLink action="cadastrar-selecao" value="Alterar" styleClass=" btn btn-primary btn-sm ">
+						<f:setPropertyActionListener value="#{selecao}"
+							target="#{selecaoBean.selecao}" />
+					</h:commandLink>
+					<h:commandLink action="#{selecaoBean.deletar(selecao.codigo)}" value="Excluir" styleClass="btn btn-primary btn-sm m-2" />
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+	</div>
+</h:body>
+
+</html>
