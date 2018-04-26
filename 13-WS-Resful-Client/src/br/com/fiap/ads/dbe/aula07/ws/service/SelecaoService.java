@@ -3,7 +3,6 @@ package br.com.fiap.ads.dbe.aula07.ws.service;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.swing.plaf.synth.SynthScrollBarUI;
 import javax.ws.rs.core.MediaType;
 
 import com.sun.jersey.api.client.Client;

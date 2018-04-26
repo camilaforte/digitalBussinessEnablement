@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Paciente</title>
+	
+</h:head>
+<h:body>
+	<h1>Paciente</h1>
+	<h:form action="">
+		<div>
+			<h:outputLabel value="Nome" for="nome" />
+			<h:inputText id="nome" value="#{pacienteBean.paciente.nome}" />/>
+		</div>
+		<div>
+			<h:outputLabel value="Data Nascimento" for="data" />
+			<h:inputText value="#{pacienteBean.paciente.dataNascimento.time}">
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:inputText>
+		</div>
+		<div>
+			<h:selectBooleanCheckbox id="doador" value="#{pacienteBean.paciente.doador}" />
+			<h:outputLabel value="doador" for="doador" />
+		</div>
+		<h:commandButton action="#{pacienteBean.paciente.salvar}" value="SALVAR" />
+	</h:form>
+</h:body>
+	
+	
+</html>
