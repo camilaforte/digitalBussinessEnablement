@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Cadastro de Imoveis</title>
+</h:head>   
+
+
+<h:body>
+	<h:messages />
+	<h:form>
+		<div>
+			<h:outputLabel value="endereço" for="end" /> <!-- endereço -->
+				<h:inputText value="#{imovelBean.imovel.endereco}" />
+			<h:outputLabel value="preco" for="preco" /><!-- preco -->
+				<h:inputText value="#{imovelBean.imovel.preco}" />
+			<h:outputLabel value="residencial" for="res" /><!-- residencial -->
+				<h:selectBooleanCheckbox value="#{imovelBean.imovel.residencial}" /> 
+			<h:commandButton action="#{imovelBean.cadastrar()}" value="CADASTRAR" />
+		</div>
+	</h:form>
+
+</h:body>  
+</html>
