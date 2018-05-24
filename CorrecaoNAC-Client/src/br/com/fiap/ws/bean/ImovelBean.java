@@ -1,5 +1,7 @@
 package br.com.fiap.ws.bean;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -41,7 +43,17 @@ public class ImovelBean {
 		return "imovel?faces-redirect=true";
 	}
 	
-	
+	public List<Imovel> getListar(){
+		FacesMessage msg;
+		
+		try {
+			return service.listar();
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg = new FacesMessage("Erro ao listar");
+			return null;
+		}
+	}
 	
 	
 	
