@@ -4,16 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Pagina de Sucesso!</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>Cadastrado com sucesso!!</h1>
-	
-	${msg}
-	${cli.nome}
-	${cli.idade}
-	${cli.habilitado}
-	${cli.genero}
-	
+		${msg }
+		${carro.modelo }
+		${carro.marca }
+		${carro.ano }
+		${carro.novo }
+		${carro.cambio }
 </body>
 </html>

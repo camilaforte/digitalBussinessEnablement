@@ -18,7 +18,7 @@
 		</div>
 		<div>
 			<label for="iCNH">Habilitado</label>
-			<input type="checkbox" name="cnh" id="iCNH">
+			<input type="checkbox" name="habilitado" id="iCNH">
 		</div>
 		<div>
 			<label for="iGenero">Genero</label>
